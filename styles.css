@@ -17,3 +17,7 @@ h1 {
   width: 450px;
   padding: 10px;
 }
+
+.button-container {
+  padding-left: 20px;
+}
