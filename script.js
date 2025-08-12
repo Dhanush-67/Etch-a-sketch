@@ -1,12 +1,13 @@
+const container = document.querySelector(".container");
+
 for (let i = 0; i < 16; i++) {
   for (let j = 0; j < 16; j++) {
     const div = document.createElement("div");
     div.classList.add("square");
-    div.style.width = `${450 / 16 - 2}px`;
-    div.style.height = `${450 / 16 - 2}px`;
+    div.style.width = `${450 / 16}px`;
+    div.style.height = `${450 / 16}px`;
     div.style.border = "1px solid black";
     div.style.backgroundColor = "white";
-    const container = document.querySelector(".container");
     container.appendChild(div);
   }
 }
@@ -26,18 +27,16 @@ window.addEventListener("mouseup", () => {
   isMouseDown = false;
 });
 
-const squares = document.querySelectorAll(".square");
-squares.forEach((square) => {
-  square.addEventListener("mouseover", (e) => {
-    if (!isMouseDown) return;
-    if (e.target.classList.contains("square")) {
-      e.target.style.backgroundColor = "black";
-    }
-  });
+container.addEventListener("mouseover", (e) => {
+  if (!isMouseDown) return;
+  if (e.target.classList.contains("square")) {
+    e.target.style.backgroundColor = "black";
+  }
 });
 
 const clear = document.querySelector(".clear");
 clear.addEventListener("click", () => {
+  const squares = document.querySelectorAll(".square");
   squares.forEach((square) => {
     square.style.backgroundColor = "white";
   });
@@ -49,19 +48,20 @@ size.addEventListener("click", () => {
   do {
     newSize = Number(prompt("Enter new size (1-64)"));
   } while (newSize < 1 || newSize > 64);
+
   const remove = document.querySelectorAll(".square");
   remove.forEach((square) => {
     square.remove();
   });
+
   for (let i = 0; i < newSize; i++) {
     for (let j = 0; j < newSize; j++) {
       const div = document.createElement("div");
       div.classList.add("square");
-      div.style.width = `${450 / newSize - 2}px`;
-      div.style.height = `${450 / newSize - 2}px`;
+      div.style.width = `${450 / newSize}px`;
+      div.style.height = `${450 / newSize}px`;
       div.style.border = "1px solid black";
       div.style.backgroundColor = "white";
-      const container = document.querySelector(".container");
       container.appendChild(div);
     }
   }

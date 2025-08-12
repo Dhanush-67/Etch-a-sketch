@@ -11,14 +11,15 @@ h1 {
 
 .container {
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-wrap: wrap;
   width: 450px;
   height: 450px;
-  padding: 10px;
+}
+
+.square {
+  box-sizing: border-box;
 }
 
 .button-container {
-  padding-left: 20px;
+  padding-bottom: 10px;
 }
