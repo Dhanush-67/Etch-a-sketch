@@ -2,8 +2,8 @@ for (let i = 0; i < 16; i++) {
   for (let j = 0; j < 16; j++) {
     const div = document.createElement("div");
     div.classList.add("square");
-    div.style.width = "25px";
-    div.style.height = "25px";
+    div.style.width = `${450 / 16 - 2}px`;
+    div.style.height = `${450 / 16 - 2}px`;
     div.style.border = "1px solid black";
     div.style.backgroundColor = "white";
     const container = document.querySelector(".container");
@@ -31,8 +31,7 @@ squares.forEach((square) => {
   square.addEventListener("mouseover", (e) => {
     if (!isMouseDown) return;
     if (e.target.classList.contains("square")) {
-      const c = e.target.style.backgroundColor;
-      e.target.style.backgroundColor = c === "black" ? "white" : "black";
+      e.target.style.backgroundColor = "black";
     }
   });
 });
@@ -58,8 +57,8 @@ size.addEventListener("click", () => {
     for (let j = 0; j < newSize; j++) {
       const div = document.createElement("div");
       div.classList.add("square");
-      div.style.width = `${400 / newSize}px`;
-      div.style.height = `${400 / newSize}px`;
+      div.style.width = `${450 / newSize - 2}px`;
+      div.style.height = `${450 / newSize - 2}px`;
       div.style.border = "1px solid black";
       div.style.backgroundColor = "white";
       const container = document.querySelector(".container");
